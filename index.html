@@ -22,7 +22,7 @@
 <title>jQuery Mobile-webtoepassing</title>
 <link href="jquery.mobile.theme-1.0.min.css" rel="stylesheet" type="text/css"/>
 <link href="jquery.mobile.structure-1.0.min.css" rel="stylesheet" type="text/css"/>
-<style type="text/css">
+
 #page2 div h1 {
 	text-align: center;
 }
@@ -39,27 +39,27 @@ h1 {
 <body> 
 
 <div data-role="page" id="page">
-	<div data-role="header" data-theme="c">
+	<div data-role="header" data-theme="a">
 		<h1>CGK Purmerend</h1>
 	</div>
 	<div data-role="content">	
-		<ul data-role="listview" data-theme="b">
+		<ul data-role="listview" data-theme="a">
 			<li><a href="#page2">Informatie</a></li>
             <li><a href="#page3">Contact</a></li>
 			<li><a href="#page4">Agenda</a></li>
 		</ul>		
 	</div>
-	<div data-role="footer" data-theme="d">
-		<h4>Paginavoettekst</h4>
+	<div data-role="content" data-theme="a">
+		<center><h4>de Schuilplaats</h4></center>
     <center><img src="header-object.png"  width="252" height="108" alt="CGK Purmerend"></center> </div>
 </div>
 
-<div id="page2" data-role="page" data-theme="d">
-	<div data-role="header" data-theme="d">
+<div id="page2" data-role="page" data-theme="a">
+	<div data-role="header" data-theme="a">
 		<a href="#page" data-icon="back" data-role="button" data-theme="b">Home</a>
         <h1>Informatie</h1>
 	</div>
-	<div data-role="content" data-theme="c">	
+	<div data-role="content" data-theme="a">	
 		Wie zijn wij?<br><BR>
 
 
@@ -74,17 +74,17 @@ Als christenen volgen we Jezus. We geloven dat Hij in de toekomst terugkomt en o
 Wilt u meer weten? Dan kunt u zich opgeven voor een cursus over het christelijk geloof. We geven u ook graag een Bijbel (zie contactgegevens).<br>
 		
 	</div>
-    <ul data-role="listview" data-split-theme="b" data-theme="b">
+    <ul data-role="listview" data-split-theme="a" data-theme="a">
 		<li><a href="#page3">Contact</a></li>
      </ul>
 
 </div>
 
 <div id="page3" data-role="page">
-	<div data-role="header" data-theme="d">
-    <a href="#page" data-icon="back" data-role="button" data-theme="b">Home</a><h1>Contact</h1>
+	<div data-role="header" data-theme="a">
+    <a href="#page" data-icon="back" data-role="button" data-theme="a">Home</a><h1>Contact</h1>
 	</div>
-	<div data-role="content">	
+	<div data-role="content" data-theme="a">	
 		<h2>Bezoekadres:</h2> 
 Rivierenlaan 283<br>
 1442 PJ Purmerend<br>
@@ -129,16 +129,17 @@ Voor het vermenigvuldigen van liturgieën, mededelingenblad maar ook extern druk
 </div>
 
 <div data-role="page" id="page4">
-	<div data-role="header" data-theme="b">
+	<div data-role="header" data-theme="a">
 		<a href="#page" data-role="button" data-icon="back">Home</a><h1>Agenda</h1>
 	</div>
-    
+  
+  <div data-role="content">  
     <script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fcgk-purmerend.nl%2Findex.php%3Foption%3Dcom_jevents%26task%3Dmodlatest.rss%26format%3Dfeed%26type%3Drss%26modid%3D98&num=10&desc=1&utf=y"  charset="UTF-8" type="text/javascript"></script>
 
 <noscript>
 <a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fcgk-purmerend.nl%2Findex.php%3Foption%3Dcom_jevents%26task%3Dmodlatest.rss%26format%3Dfeed%26type%3Drss%26modid%3D98&num=10&desc=1&utf=y&html=y">View RSS feed</a>
 </noscript>
-
+</div>
 
 	<div data-role="footer">
 		<h4>www.cgk-purmerend.nl</h4>
