@@ -37,7 +37,7 @@
 			date: false,
 			dateformat: 'datetime',
 			content: true,
-			snippet: true,
+			snippet: false,
 			media: true,
 			showerror: true,
 			errormsg: '',
@@ -247,7 +247,7 @@
 		// Add rows to output
 		$.each(rowArray, function(e) {
 
-			html += '<li type="" class="rssRow '+row+'">' + rowArray[e]['html'] + '</li>';
+			html += rowArray[e]['html'] + '';
 
 			// Alternate row classes
 			if (row == 'odd') {
