@@ -126,7 +126,7 @@
 		// Add header if required
 		if (options.header)
 			html +=	'<div class="rssHeader">' +
-				'<a href="'+feeds.link+'" title="'+ feeds.description +'">'+ feeds.title +'</a>' +
+				feeds.title +
 				'</div>';
 			
 		// Add body
@@ -247,7 +247,7 @@
 		// Add rows to output
 		$.each(rowArray, function(e) {
 
-			html += rowArray[e]['html'] + '';
+			html +=  rowArray[e]['html'];
 
 			// Alternate row classes
 			if (row == 'odd') {
