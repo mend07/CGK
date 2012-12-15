@@ -26,3 +26,5 @@ background-size: 100% Auto;
    height:22px;
    margin-top:0px;
 } 
+
+.ui-content { min-height:100%}
