@@ -8,13 +8,13 @@
 .ui-icon-myapp-agenda {
 	background-image: url("agenda.png");	
 }
-.ui-icon-myapp-facebook {
-	background-image: url("facebook.png");	
+.ui-icon-myapp-gemist {
+	background-image: url("gemist.png");	
 }
 .ui-icon-myapp-home {
 	background-image: url("home.png");	
 }
-.ui-icon-myapp-info,.ui-icon-myapp-contact,.ui-icon-myapp-agenda,.ui-icon-myapp-facebook,.ui-icon-myapp-home {
+.ui-icon-myapp-info,.ui-icon-myapp-contact,.ui-icon-myapp-agenda,.ui-icon-myapp-gemist,.ui-icon-myapp-home {
 background-position: 50% 50%;
 background-repeat:no-repeat;
 background-size: 100% Auto;
