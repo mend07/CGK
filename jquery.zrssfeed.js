@@ -222,7 +222,7 @@
 						var xmlUrl = xmlMedia[m].getAttribute("url");
 						var xmlType = xmlMedia[m].getAttribute("type");
 						var xmlSize = xmlMedia[m].getAttribute("length");
-						rowArray[rowIndex]['html'] += '<li><a href="'+ xmlUrl +'" title="Download this media" >'+ 'Download dienst' +'</a> <br>('+ xmlType +', '+ _formatFilesize(xmlSize) +')</li>';
+						rowArray[rowIndex]['html'] += '<li><a href="'+ xmlUrl +'" title="Download this media" >'+ 'Download dienst' +'</a> <br><br>('+ xmlType +', '+ _formatFilesize(xmlSize) +')</li>';
 					}
 					rowArray[rowIndex]['html'] += '</div>'
 				}
