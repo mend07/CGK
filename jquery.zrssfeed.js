@@ -33,12 +33,12 @@
 			limit: 10,
 			offset: 1,
 			header: true,
-			titletag: 'h3',
-			date: false,
-			dateformat: 'datetime',
+			titletag: 'h4',
+			date: true,
+			dateformat: 'dd-MM-yyyy hh:mm',
 			content: true,
-			snippet: false,
-			media: true,
+			snippet: true,
+			media: false,
 			showerror: true,
 			errormsg: '',
 			key: null,
@@ -48,7 +48,9 @@
 			linkcontent: false,
 			sort: '',
 			sortasc: true,
-			historical: false
+			historical: false,
+			showlinkheader: true,
+			showlinkfeed:true,
 		};  
 		var options = $.extend(defaults, options); 
 		
@@ -125,13 +127,15 @@
 		
 		// Add header if required
 		if (options.header)
-			html +=	'<div class="rssHeader">' +
-				feeds.title +
-				'</div>';
-			
+			if (options.showlinkheader)
+				html +=	'<div class="rssHeader">' +
+					'<a href="'+feeds.link+'" title="'+ 				feeds.description +'">'+ feeds.title +'</a>' +
+					'</div>';
+			else
+				html +=	feeds.title +
+					'</div>';;
 		// Add body
-		html += '<div class="rssBody">' +
-			'<ul>';
+		html += '<div class="rssBody"><center>';
 
 
 		// Add feeds
@@ -181,9 +185,13 @@
 				}
 			}
 			
+			//add feedrow
 			// Add feed row
 			if (options.linkredirect) feedLink = encodeURIComponent(feedLink);
-			rowArray[rowIndex]['html'] = '<'+ options.titletag +'><a>'+ entry.title +'</a></'+ options.titletag +'>'
+			if (options.showlinkfeed)
+				rowArray[rowIndex]['html'] = '<'+ options.titletag +'><a href="'+ options.linkredirect + feedLink +'" title="View this feed at '+ feeds.title +'">'+ entry.title +'</a></'+ options.titletag +'>'
+			else
+				rowArray[rowIndex]['html'] = '<'+ options.titletag +'> '+ options.linkredirect + entry.title +'</'+ options.titletag +'>'
 
 			if (options.date && pubDate) rowArray[rowIndex]['html'] += '<div>'+ pubDate +'</div>'
 			if (options.content) {
@@ -202,20 +210,21 @@
 				rowArray[rowIndex]['html'] += '<p>'+ content +'</p>'
 			}
 			
+			//add sort
 			// Add any media
 			if (options.media && xmlEntries.length > 0) {
 				var xmlMedia = xmlEntries[i].getElementsByTagName('enclosure');
 				if (xmlMedia.length > 0) {
 					
-					rowArray[rowIndex]['html'] += '<div class="rssMedia"><div>Media files</div><ul>'
+					rowArray[rowIndex]['html'] += '<div class="rssMedia"><div></div><ul>'
 					
 					for (var m=0; m<xmlMedia.length; m++) {
 						var xmlUrl = xmlMedia[m].getAttribute("url");
 						var xmlType = xmlMedia[m].getAttribute("type");
 						var xmlSize = xmlMedia[m].getAttribute("length");
-						rowArray[rowIndex]['html'] += '<li><a href="'+ xmlUrl +'" title="Download this media">'+ xmlUrl.split('/').pop() +'</a> ('+ xmlType +', '+ _formatFilesize(xmlSize) +')</li>';
+						rowArray[rowIndex]['html'] += '<li><button type="button" onclick="location.href="'+ xmlUrl +'" title="Download this media" >'+ 'Download dienst' +' <br>('+ xmlType +', '+ _formatFilesize(xmlSize) +')</li>';
 					}
-					rowArray[rowIndex]['html'] += '</ul></div>'
+					rowArray[rowIndex]['html'] += '</div>'
 				}
 			}
 					
@@ -247,7 +256,7 @@
 		// Add rows to output
 		$.each(rowArray, function(e) {
 
-			html +=  rowArray[e]['html'];
+			html +=  rowArray[e]['html']+'<hr>' ;
 
 			// Alternate row classes
 			if (row == 'odd') {
@@ -258,7 +267,7 @@
 		});
 
 		html += '</ul>' +
-			'</div>'
+			'</center></div>'
 		
 		$(e).html(html);
 
@@ -313,7 +322,7 @@
 		// Get current date and format date parameter
 		var todayDate = new Date();	
 		var pastDate = new Date(date);
-
+ 
 		// Get lasped time in seconds
 		var lapsedTime = Math.round((todayDate.getTime() - pastDate.getTime())/1000)
 
